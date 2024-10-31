@@ -24,27 +24,33 @@ To clone and run this application, follow these steps:
    git clone https://github.com/yourusername/WeatherNow.git
 
 3. **Navigate to the Project Directory**
+   
    ```bash
    cd WeatherNow
 
-5. **Modify the API Key**
+4. **Modify the API Key**
 Open the appsettings.json file in your project and locate the WeatherApi section. You will need to replace the placeholder API key with your actual OpenWeatherMap API key
    ```bash
    "WeatherApi": {
     "ApiKey": "your_api_key_here", 
     "BaseUrl": "https://api.openweathermap.org/data/2.5/weather"
-  }
+   }
 
-4. **Restore Dependencies**
+5. **Restore Dependencies**
+   
    ```bash
    dotnet restore
 
-5. **Run the Application**
+6. **Run the Application**
+   
    ```bash
    dotnet run
 
-6. **Access the Application**
+7. **Access the Application**
+
+   Open your web browser and navigate to
    ```bash
-   Open your web browser and navigate to http://localhost:5000 (or the URL shown in the terminal) to see the application in action. 
+    http://localhost:5000
+(or the URL shown in the terminal) to see the application in action. 
 
    
