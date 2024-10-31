@@ -1,0 +1,90 @@
+@model WeatherNow.Models.WeatherResponse
+@{
+    ViewData["Title"] = "Weather Page";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary fw-bold">Check the Weather for Any City 🌤️</h2>
+    <p class="text-center text-muted">Stay updated with the latest weather information!</p>
+    <form asp-action="GetWeather" method="post" class="my-4 d-flex justify-content-center">
+        <div class="input-group" style="max-width: 500px;">
+            <input type="text" name="city" class="form-control form-control-lg shadow-sm" placeholder="Enter city name" required>
+            <button type="submit" class="btn btn-primary btn-lg shadow-sm">Get Weather</button>
+        </div>
+    </form>
+
+    @if (Model != null)
+    {
+        <div class="card text-center mx-auto mb-5 shadow-lg border-0" style="max-width: 400px; border-radius: 15px;">
+            <div class="card-body">
+                <h2 class="card-title text-info fw-bold">@Model.City</h2>
+                <h5 class="card-subtitle mb-2 text-secondary">
+                    @DateTime.Now.DayOfWeek, @DateTime.Now.ToShortDateString()
+                </h5>
+                <h6 class="text-muted mb-3">@DateTime.Now.ToShortTimeString()</h6>
+                
+                <div class="weather-icon">
+                    @if (Model.Weather != null && Model.Weather.Count > 0)
+                    {
+                        var iconUrl = "";
+                        var icon = Model.Weather[0].Icon;
+                        iconUrl = $"https://openweathermap.org/img/wn/{icon}@2x.png";
+
+                        <img src="@iconUrl" alt="Weather Icon" class="mb-2" style="width: 80px;">
+                        <h4 class="fw-bold text-capitalize">@Model.Weather[0].Description</h4>
+                    }
+                </div>
+
+                <p class="display-4 fw-semibold text-primary">@Model.Main.Temperature °C</p>
+                <div class="text-secondary mt-2">
+                    <p class="mb-1">Humidity: @Model.Main.Humidity%</p>
+                    <p>Wind Speed: @Model.Wind.Speed km/h</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+@* <div class="container mt-5">
+    <h2 class="text-center">Here you can find out the weather for any city you want ☺</h2>
+    <br />
+    <form asp-action="GetWeather" method="post" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="city" class="form-control form-control-lg" placeholder="Enter city name" required>
+            <button type="submit" class="btn btn-primary">Get Weather</button>
+        </div>
+    </form>
+
+     @if (Model != null)
+    {
+        <div class="card text-center mx-auto mb-5" style="max-width: 400px;">
+            <div class="card-body">
+                <h2>@Model.City</h2>
+                <h4>@DateTime.Now.DayOfWeek @DateTime.Now.ToShortDateString()</h4>
+                <h2>@DateTime.Now.ToShortTimeString()</h2>
+                <p class="lead">
+                    @if (Model.Weather != null && Model.Weather.Count > 0)
+                    {
+                        <!-- OpenWeatherMap icon option -->
+
+                        var iconUrl = "";
+                        var icon = Model.Weather[0].Icon;
+                        iconUrl = $"https://openweathermap.org/img/wn/{icon}@2x.png";
+
+                        <img src=@iconUrl alt="Weather Icon">
+                        
+                        <br>
+                        <h3 class="fw-bold">@Model.Weather[0].Description</h3>
+                    }
+                </p>
+                
+                <p class="display-4">@Model.Main.Temperature °C</p>
+                <p class="text-muted">Humidity: @Model.Main.Humidity%</p>
+                <p class="text-muted">Speed: @Model.Wind.Speed Km/h</p>
+            </div>
+        </div>
+    }
+</div> *@
