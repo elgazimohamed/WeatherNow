@@ -3,8 +3,7 @@
 ## Overview
 WeatherNow is a web application that allows users to check the current weather for any city around the globe. Leveraging the OpenWeatherMap API, this application provides real-time weather data, including temperature, humidity, wind speed, and weather conditions. Built with ASP.NET Core MVC and Bootstrap 5, it aims to deliver a responsive and user-friendly experience.
 
-![Uploading image.png…]()
-
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/b3c308af-2e65-40e6-9110-9a72a7231fb0">
 
 ## Features
 - **Real-Time Weather Data**: Get current weather information for any city using OpenWeatherMap API.
